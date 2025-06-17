@@ -14,17 +14,11 @@ export const metadata = {
     ],
   },
 };
-
-import Navbar from './components/Navbar';
-import Body from './components/Body';
-import Footer from './components/Footer';
-
-export default function Home() {
+export default function Products() {
   return (
     <div className="flex flex-col min-h-screen">
-      <Navbar />
-      <Body />
-      <Footer />
+      <h1 className="text-3xl font-bold mb-4">产品</h1>
+      <p>这里是产品页面的内容。</p>
     </div>
   );
 }
