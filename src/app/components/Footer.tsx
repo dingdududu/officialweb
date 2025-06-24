@@ -1,11 +1,45 @@
-import Image from "next/image";
+import Link from 'next/link';
+import { socialLinks } from "./socialLinks";
+// 放在 Footer 组件里
+const shareUrl = encodeURIComponent(typeof window !== "undefined" ? window.location.href : "https://你的网址.com");
+const shareTitle = encodeURIComponent(typeof document !== "undefined" ? document.title : "你的页面标题");
 
-const Footer = () => {
+
+export default function Footer() {
   return (
-    <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-      99999
+    <footer
+      className="w-full"
+      style={{
+        background: '#eef6fc',
+        minHeight: 200,
+        color: '#222',
+      }}
+    >
+      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center py-8 px-4 h-[200px]">
+        {/* 菜单 */}
+        <div className="flex flex-col md:flex-row gap-6 mb-4 md:mb-0">
+          <Link href="/" className="hover:underline">首页</Link>
+          <Link href="/about" className="hover:underline">关于我们</Link>
+          <Link href="/services" className="hover:underline">服务</Link>
+          <Link href="/products" className="hover:underline">产品</Link>
+          <Link href="/contact" className="hover:underline">联系我们</Link>
+        </div>
+        {/* 社交媒体 */}
+        {/* <div className="flex flex-wrap gap-4 justify-center"> */}
+        <div className="flex gap-4">
+          {socialLinks.map(link => (
+            <a
+              key={link.label}
+              href={link.getHref(shareUrl, shareTitle)}
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label={link.label}
+            >
+              <img src={link.icon} alt={link.label} className="w-7 h-7" />
+            </a>
+          ))}
+        </div>
+      </div>
     </footer>
   );
-};
-
-export default Footer;
+}

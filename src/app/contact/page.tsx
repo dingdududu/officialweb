@@ -16,7 +16,7 @@ export const metadata = {
 };
 export default function Contact() {
   return (
-    <div className="flex flex-col min-h-screen">
+    <div className="flex flex-col min-h-screen pt-[85px]">
       <h1 className="text-3xl font-bold mb-4">联系我们</h1>
       <p>这里是联系我们页面的内容。</p>
     </div>
