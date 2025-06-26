@@ -20,12 +20,12 @@ const Navbar = () => {
   }, []);
 
     const navItems = [
-    { href: "/", label: "首页" },
-    { href: "/about", label: "关于我们" },
-    { href: "/services", label: "服务" },
-    { href: "/products", label: "产品" },
-    { href: "/qas", label: "常见问题" },
-    { href: "/contact", label: "联系我们" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "About us" },
+    { href: "/services", label: "Services" },
+    { href: "/products", label: "Products" },
+    { href: "/qas", label: "Q&A" },
+    { href: "/contact", label: "Contact us" },
   ];
 
   return (

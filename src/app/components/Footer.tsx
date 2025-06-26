@@ -18,11 +18,11 @@ export default function Footer() {
       <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center py-8 px-4 h-[200px]">
         {/* 菜单 */}
         <div className="flex flex-col md:flex-row gap-6 mb-4 md:mb-0">
-          <Link href="/" className="hover:underline">首页</Link>
-          <Link href="/about" className="hover:underline">关于我们</Link>
-          <Link href="/services" className="hover:underline">服务</Link>
-          <Link href="/products" className="hover:underline">产品</Link>
-          <Link href="/contact" className="hover:underline">联系我们</Link>
+          <Link href="/" className="hover:underline">Home</Link>
+          <Link href="/about" className="hover:underline">About us</Link>
+          <Link href="/services" className="hover:underline">Services</Link>
+          <Link href="/products" className="hover:underline">Products</Link>
+          <Link href="/contact" className="hover:underline">Contact us</Link>
         </div>
         {/* 社交媒体 */}
         {/* <div className="flex flex-wrap gap-4 justify-center"> */}
