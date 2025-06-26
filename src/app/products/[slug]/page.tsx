@@ -1,23 +1,23 @@
 "use client";
-import React from "react";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import ProductSlider from "@/app/components/ProductSlider";
 import { products } from "@/data/products";
+import { use } from "react";
 
 type Props = {
-  params: { slug: string };
+  params:Promise< { slug: string }>;
 };
 
 export default function ProductDetail({ params }: Props) {
-  const { slug } = params;
+  const { slug } = use(params);
   const product = products.find((p) => p.slug === slug);
   if (!product) return <div className="text-center py-20">Cant find product</div>;
   const getEmbedUrl = (url: string) => {
   if (!url) return "";
   if (url.includes("embed/")) return url;
   const match = url.match(/v=([^&]+)/);
-  return match ? `https://www.youtube.com/embed/${match[1]}` : url;
+  return match ? `https://www.youtube-nocookie.com/embed/${match[1]}` : url;
 };
 
  return (
