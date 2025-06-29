@@ -1,11 +1,11 @@
 
 export const metadata = {
   metadataBase: new URL('https://yourdomain.com'),
-  title: "首页 - 你的商务推广网站",
-  description: "这里是你的公司/产品/服务简介，利于SEO收录。",
+  title: "Home - This is my business website",
+  description: "This is a brief introduction to your company/product/service, beneficial for SEO.",
   openGraph: {
-    title: "首页 - 你的商务推广网站",
-    description: "这里是你的公司/产品/服务简介。",
+    title: "Home - This is my business website",
+    description: "This is a brief introduction to your company/product/service.",
     images: [
       {
         url: "/images/og-image.jpg", // 你的分享图路径
