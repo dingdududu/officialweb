@@ -6,15 +6,17 @@ import { useRef } from "react";
 export default function ContactForm() {
   const formRef = useRef<HTMLFormElement>(null);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
   e.preventDefault();
   const form = formRef.current;
   if (!form) return;
 
   const formData = new FormData(form);
-  const name = (formData.get("name") as string).trim();
-  const email = (formData.get("email") as string).trim();
-  const message = (formData.get("message") as string).trim();
+  const data = Object.fromEntries(formData.entries());
+  const name = (data.name as string)?.trim();
+  const email = (data.email as string)?.trim();
+  const message = (data.message as string)?.trim();
+  const website = (data.website as string)?.trim();
 
   if (!name) {
     alert("Name is required.");
@@ -32,8 +34,24 @@ export default function ContactForm() {
     alert("Message is required.");
     return;
   }
+  if (website && !/^((https?:\/\/)?[\w.-]+\.[a-z]{2,})$/i.test(website)) {
+  alert("Please enter a valid website address.");
+  return;
+}
 
-  form.submit(); // 通过校验后再提交
+  // ...校验通过后
+const res = await fetch("/api/contact", {
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify(data),
+});
+
+if (res.ok) {
+  alert("Submitted successfully!");
+  form.reset();
+} else {
+  alert("Submission failed.");
+}
 };
   return (
     <div className="flex flex-col min-h-screen  items-center">
@@ -109,7 +127,7 @@ export default function ContactForm() {
           <input
             id="website"
             name="website"
-            type="url"
+            type="text"
             className="w-full border border-gray-300 rounded px-3 py-2 focus:outline-none focus:border-blue-500"
           />
         </div>
