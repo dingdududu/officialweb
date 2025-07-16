@@ -1,0 +1,25 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+// 自已的数据模型
+model Contact {
+  id       Int      @id @default(autoincrement())
+  name     String
+  email    String
+  company  String?
+  address  String?
+  phone    String?
+  website  String?
+  message  String
+  createdAt DateTime @default(now())
+}

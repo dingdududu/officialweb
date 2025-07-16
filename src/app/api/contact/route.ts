@@ -1,8 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 import nodemailer from "nodemailer";
+import { PrismaClient } from "@/generated/prisma";
+
+const prisma = new PrismaClient();
 
 export async function POST(req: NextRequest) {
   const data = await req.json();
+  
+  // 将用户提交的信息保存到数据库
+  await prisma.contact.create({ data });
 
     // 配置nodemailer
   const transporter = nodemailer.createTransport({
