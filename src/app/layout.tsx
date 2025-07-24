@@ -4,34 +4,51 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
+import metadataJson from "../data/metadata.json";
 
 
 const openSans = Open_Sans({ subsets: ["latin"], weight: ["400", "600", "700"] });
 
-export const metadata:Metadata = {
-  metadataBase: new URL('https://yourdomain.com'),
-  title: "首页 - 你的商务推广网站",
-  description: "这里是你的公司/产品/服务简介，利于SEO收录。",
-  keywords: ["商务", "推广", "网站"],
-  robots: "index, follow",
-  openGraph: {
-    title: "首页 - 你的商务推广网站",
-    description: "这里是你的公司/产品/服务简介。",
-    url:"/faqs",
-    type: "website",
-    images: [
-      {
-        url: "/images/og-image.jpg", // 你的分享图路径
-        width: 800,                  // w
-        height: 600,                 // h
-      },
-    ],
-  },
-  alternates: {
-    canonical: "/faqs", 
-  },
-};
+// 定义自定义 OpenGraph 类型
+interface CustomOpenGraph {
+  title?: string;
+  description?: string;
+  url?: string;
+  type?: string;
+  images?: Array<{ url: string; width?: number; height?: number }>;
+  site_name?: string;
+}
 
+// 定义自定义 Metadata 类型
+interface CustomMetadata extends Omit<Metadata, 'openGraph'> {
+  openGraph?: CustomOpenGraph;
+}
+
+export function generateMetadata({ params }: { params: { slug?: string } }) {
+  const page = params?.slug ? 'products' : 'home'; // 动态路由判断
+  const pageData = metadataJson[page] || metadataJson.home; // 回退到 home
+  return {
+    metadataBase: new URL(pageData.url),
+    title: pageData.title,
+    description: pageData.description,
+    keywords: pageData.keywords,
+    robots: "index, follow",
+    openGraph: {
+      title: pageData.ogTitle,
+      description: pageData.ogDescription,
+      url: pageData.url,
+      type: "website",
+      images: [{ url: pageData.ogImage, width: 800, height: 600 }],
+      site_name: metadataJson.siteName || "Your Business Name",
+    } as CustomOpenGraph,
+    alternates: {
+      canonical: pageData.url,
+    },
+  } as CustomMetadata;
+
+
+  
+}
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
@@ -43,7 +60,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-screen flex flex-col">
         <Navbar />
-        <main className="flex-1">{children}</main>
+        <main className="flex-1 z-[0] pt-[85px] md:pt-[60px]">{children}</main>
         <Footer />
       </body>
     </html>

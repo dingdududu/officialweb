@@ -1,0 +1,60 @@
+{
+  "home": {
+    "title": "首页 - 你的商务推广网站",
+    "description": "这里是你的公司/产品/服务简介，利于SEO收录。",
+    "keywords": "商务, 推广, 网站, 企业服务",
+    "ogTitle": "首页 - 你的商务推广网站",
+    "ogDescription": "这里是你的公司/产品/服务简介。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com"
+  },
+  "about": {
+    "title": "关于我们 - 你的商务推广网站",
+    "description": "了解我们的公司背景、团队和使命。",
+    "keywords": "关于我们, 公司介绍, 团队",
+    "ogTitle": "关于我们 - 你的商务推广网站",
+    "ogDescription": "了解我们的公司背景、团队和使命。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com/about"
+  },
+  "services": {
+    "title": "服务 - 你的商务推广网站",
+    "description": "了解我们提供的各种服务。",
+    "keywords": "服务, 商务服务, 企业服务",
+    "ogTitle": "服务 - 你的商务推广网站",
+    "ogDescription": "了解我们提供的各种服务。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com/services"
+  },
+
+  "products": {
+    "title": "产品 - 你的商务推广网站",
+    "description": "浏览我们提供的各种产品。",
+    "keywords": "产品, 航空产品, 商务产品",
+    "ogTitle": "产品 - 你的商务推广网站",
+    "ogDescription": "浏览我们提供的各种产品。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com/products"
+  },
+
+  "faqs": { 
+    "title": "常见问题 - 你的商务推广网站",
+    "description": "解答你可能有的常见问题。",
+    "keywords": "常见问题, FAQ, 问题解答",
+    "ogTitle": "常见问题 - 你的商务推广网站",
+    "ogDescription": "解答你可能有的常见问题。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com/faqs"
+},
+  "contact": {
+    "title": "联系我们 - 你的商务推广网站",
+    "description": "与我们取得联系，获取更多信息。",
+    "keywords": "联系, 客服, 支持",
+    "ogTitle": "联系我们 - 你的商务推广网站",
+    "ogDescription": "与我们取得联系，获取更多信息。",
+    "ogImage": "/images/og-image.jpg",
+    "url": "https://yourdomain.com/contact"
+  },
+  "siteName": "This is a Business Promotion Website"
+  
+}

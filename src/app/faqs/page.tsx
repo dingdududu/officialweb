@@ -2,6 +2,7 @@ export const metadata = {
   metadataBase: new URL('https://yourdomain.com'),
   title: "首页 - 你的商务推广网站",
   description: "这里是你的公司/产品/服务简介，利于SEO收录。",
+  keywords: "这里写上你网站的关键词, 逗号分隔",
   openGraph: {
     title: "首页 - 你的商务推广网站",
     description: "这里是你的公司/产品/服务简介。",
@@ -14,6 +15,7 @@ export const metadata = {
     ],
   },
 };
+
 
 import { qaList } from "@/data/qaList";
 import FQAList from "@/app/components/FQAList";

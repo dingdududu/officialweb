@@ -1,17 +1,62 @@
-export const metadata = {
-  metadataBase: new URL('https://yourdomain.com'),
-  title: "首页 - 你的商务推广网站",
-  description: "这里是你的公司/产品/服务简介，利于SEO收录。",
+// 导入 metadata.json，路径根据项目结构调整
+import metadataJson from "@/data/metadata.json";
+import type { Metadata } from "next";
+
+interface CustomOpenGraph {
+  title?: string;
+  description?: string;
+  url?: string;
+  type?: string;
+  images?: Array<{ url: string; width?: number; height?: number }>;
+  site_name?: string;
+}
+
+interface OrganizationJsonLd {
+  "@context": string;
+  "@type": string;
+  name: string;
+  description: string;
+  url: string;
+  logo: string;
+
+}
+
+type CustomMetadata = Metadata & {
+  openGraph?: CustomOpenGraph;
+  jsonLd?: OrganizationJsonLd;
+};
+
+export const metadata: CustomMetadata = {
+  metadataBase: new URL(metadataJson.services.url), 
+  title: metadataJson.services.title, 
+  description: metadataJson.services.description,
+  keywords: metadataJson.services.keywords,
+  robots: "index, follow", 
   openGraph: {
-    title: "首页 - 你的商务推广网站",
-    description: "这里是你的公司/产品/服务简介。",
+    title: metadataJson.services.ogTitle,
+    description: metadataJson.services.ogDescription,
+    url: metadataJson.services.url,
     images: [
       {
-        url: "/images/og-image.jpg", // 你的分享图路径
-        width: 800,                  // w
-        height: 600,                 // h
+        url: `${metadataJson.services.url}${metadataJson.services.ogImage}`,
+        width: 800, // 假设宽度
+        height: 600, // 假设高度
       },
     ],
+    type: "website",
+    site_name: metadataJson.siteName,
+  },
+  alternates: {
+    canonical: metadataJson.services.url,
+  },
+  jsonLd: {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    name: metadataJson.siteName,
+    description: metadataJson.services.description,
+    url: metadataJson.services.url,
+    logo: `${metadataJson.services.url}/images/logo.png`, // 假设 logo 路径
+
   },
 };
 
@@ -19,7 +64,14 @@ export const metadata = {
 
 export default function Services() {
   return (
-    <div className="flex flex-col min-h-screen pt-[135px] max-w-[800px] mx-auto text-justify py-8 px-4">
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify(metadata.jsonLd),
+        }}
+      />
+    <div className="flex flex-col min-h-screen pt-16 sm:pt-20 md:pt-24 max-w-[800px] mx-auto text-base sm:text-lg py-8 px-4">
       <h1 className="text-3xl font-bold mb-4  text-center">Services</h1>
       <p className="mt-8 mb-4" style={{ textIndent: "2em" }}>
         Sydney is the largest city in Australia. It is world-renowned for its landmarks such as the Opera House and Sydney Harbour Bridge, its beautiful harbor, and its vast range of entertainment and fine dining. 40 things to do in Sydney sounds like a lot, and it is, but there are many more places we could have added to this list.
@@ -28,12 +80,12 @@ export default function Services() {
       </p>
       {/* 视频封面区域 */}
       <div className="mt-8 flex flex-col items-center">
-  <div className="w-full aspect-video max-w-[800px]">
+  <div className="w-full aspect-video max-w-[600px] sm:max-w-[800px]">
     <iframe
       width="100%"
       height="100%"
       src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-      title="YouTube video player"
+      title="Services Overview Video" // 提升可访问性
       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
       allowFullScreen
       className="w-full h-full rounded-lg shadow-lg"
@@ -53,7 +105,7 @@ export default function Services() {
             width="100%"
             height="100%"
             src="https://www.tiktok.com/embed/v2/你的视频ID"
-            title="TikTok video player"
+            title="Services TikTok Video" // 提升可访问性
             allow="autoplay; encrypted-media"
             allowFullScreen
             className="w-full h-full rounded-lg shadow-lg"
@@ -61,5 +113,6 @@ export default function Services() {
         </div>
       </div>
     </div>
+    </>
   );
 }

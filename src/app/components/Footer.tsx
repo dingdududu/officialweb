@@ -1,45 +1,78 @@
-import Link from 'next/link';
 import { socialLinks } from "./socialLinks";
-// 放在 Footer 组件里
-const shareUrl = encodeURIComponent(typeof window !== "undefined" ? window.location.href : "https://你的网址.com");
-const shareTitle = encodeURIComponent(typeof document !== "undefined" ? document.title : "你的页面标题");
 
+// 放在 Footer 组件里，这里的websie和title要根据实际情况修改
+const shareUrl = encodeURIComponent(
+  typeof window !== "undefined"
+    ? window.location.href
+    : process.env.NEXT_PUBLIC_SITE_URL || "https://yourwebsite.com"
+);
+
+const shareTitle = encodeURIComponent(
+  typeof document !== "undefined"
+    ? document.title
+    : process.env.NEXT_PUBLIC_DEFAULT_TITLE || "Your Website Title"
+);
+
+const mobileSocialLinks = socialLinks.filter((link) =>
+  ["X", "WhatsApp", "Line", "Instagram", "Signal"].includes(link.label)
+);
 
 export default function Footer() {
+
   return (
+    <div className="mt-24">
     <footer
-      className="w-full"
-      style={{
-        background: '#eef6fc',
-        minHeight: 200,
-        color: '#222',
-      }}
+      className="w-full bg-[#eef6fc] text-[#222]"
+      role="contentinfo"
     >
-      <div className="max-w-screen-xl mx-auto flex flex-col md:flex-row justify-between items-center py-8 px-4 h-[200px]">
-        {/* 菜单 */}
-        <div className="flex flex-col md:flex-row gap-6 mb-4 md:mb-0">
-          <Link href="/" className="hover:underline">Home</Link>
-          <Link href="/about" className="hover:underline">About us</Link>
-          <Link href="/services" className="hover:underline">Services</Link>
-          <Link href="/products" className="hover:underline">Products</Link>
-          <Link href="/contact" className="hover:underline">Contact us</Link>
-        </div>
-        {/* 社交媒体 */}
-        {/* <div className="flex flex-wrap gap-4 justify-center"> */}
-        <div className="flex gap-4">
-          {socialLinks.map(link => (
+      <div className="max-w-screen-xl mx-auto flex flex-col gap-6 py-4 px-4 sm:py-6 sm:px-6 ">
+        {/* 社交链接 - 移动端垂直，桌面端居中 */}
+        <div className="flex flex-row items-center justify-center gap-3 md:flex-row md:justify-center md:gap-4">
+          {mobileSocialLinks.map((link) => (
             <a
               key={link.label}
               href={link.getHref(shareUrl, shareTitle)}
               target="_blank"
               rel="noopener noreferrer"
-              aria-label={link.label}
+              aria-label={`${link.label} link, opens in new window`}
+              title={`${link.label} - Share on ${link.label}`}
             >
-              <img src={link.icon} alt={link.label} className="w-7 h-7" />
+              <img
+                src={link.icon}
+                alt={`${link.label} icon`}
+                className="w-6 h-6 sm:w-7 sm:h-7 transition-transform hover:scale-110"
+              />
             </a>
           ))}
+          <div className="hidden md:flex md:flex-row md:items-center md:gap-4">
+            {socialLinks
+              .filter((link) => !mobileSocialLinks.includes(link))
+              .map((link) => (
+                <a
+                  key={link.label}
+                  href={link.getHref(shareUrl, shareTitle)}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${link.label} link, opens in new window`}
+                  title={`${link.label} - Share on ${link.label}`}
+                >
+                  <img
+                    src={link.icon}
+                    alt={`${link.label} icon`}
+                    className="w-6 h-6 sm:w-7 sm:h-7 transition-transform hover:scale-110"
+                  />
+                </a>
+              ))}
+          </div>
+        </div>
+        {/* 版权信息 - 另起一行居中 */}
+        <div className="flex justify-center">
+          <small className="text-center text-sm md:text-base">
+            © {new Date().getFullYear()} Your Website. All rights reserved.
+          </small>
         </div>
       </div>
     </footer>
+    </div>
   );
 }
