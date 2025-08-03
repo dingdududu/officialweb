@@ -26,7 +26,7 @@ type CustomMetadata = Metadata & {
   jsonLd?: OrganizationJsonLd;
 };
 export const metadata: CustomMetadata = {
-  metadataBase: new URL(metadataJson.about.url), // 使用 about 的 url 作为基础
+  metadataBase: new URL(metadataJson.baseUrl), 
   title: metadataJson.about.title, // 直接使用 about.title
   description: metadataJson.about.description,
   keywords: metadataJson.about.keywords,
@@ -37,7 +37,7 @@ export const metadata: CustomMetadata = {
     url: metadataJson.about.url,
     images: [
       {
-        url: `${metadataJson.about.url}${metadataJson.about.ogImage}`,
+        url: metadataJson.about.ogImage,
         width: 800, // 假设宽度
         height: 600, // 假设高度
       },
@@ -46,7 +46,7 @@ export const metadata: CustomMetadata = {
     site_name: metadataJson.siteName , 
   }, 
   alternates: {
-    canonical: metadataJson.about.url, // 使用 about 的 url 作为规范链接
+    canonical:metadataJson.about.url, // 使用 about 的 url 作为规范链接
   },
 
   jsonLd: {
@@ -54,8 +54,8 @@ export const metadata: CustomMetadata = {
     "@type": "Organization",
     name: metadataJson.siteName,
     description: metadataJson.about.description,
-    url: metadataJson.about.url,
-    logo: `${metadataJson.about.url}/images/logo.png`, // 假设 logo 路径
+    url: metadataJson.baseUrl,
+    logo: `${metadataJson.baseUrl}/images/logo.png`, // 假设 logo 路径
 
   } , 
 };
