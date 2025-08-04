@@ -167,7 +167,7 @@ export default function Services() {
           <TikTokEmbed
             videoId="7508781238694546696"
             username="la259_"
-            description="Professional services showcase"
+            // description="Professional services showcase"
             // coverImage="/images/tiktok-cover.jpg" // 可选：如果你有封面图片
           />
         </div>
