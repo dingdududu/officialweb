@@ -67,7 +67,7 @@ export const metadata: CustomMetadata = {
 };
 
 // FAQ 结构化数据组件
-export function FAQStructuredData() {
+function FAQStructuredData() {
   const faqData = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
