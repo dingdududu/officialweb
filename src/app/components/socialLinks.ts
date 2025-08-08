@@ -74,11 +74,11 @@ export const socialLinks: SocialLink[] = [
       `https://www.reddit.com/submit?url=${encodeURIComponent(url)}&title=${encodeURIComponent(title)}`
   },
   // RSS
-  {
-    label: "RSS",
-    icon: "/images/rss.svg",
-    getHref: () => "/rss.xml"
-  },
+  // {
+  //   label: "RSS",
+  //   icon: "/images/rss.svg",
+  //   getHref: () => "/rss.xml"
+  // },
   // Telegram
   {
     label: "Telegram",
