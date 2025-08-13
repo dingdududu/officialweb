@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { products } from "@/data/products";
 import metadataJson from "@/data/metadata.json";
 import type { Metadata } from "next";
@@ -80,11 +81,15 @@ export default function Products() {
                   className="w-full"
                   aria-label={`查看${product.name}详情`}
                 >
-                  <div className="w-full aspect-[4/5] bg-gray-100 overflow-hidden shadow-sm">
-                    <img
+                  <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden shadow-sm">
+                    <Image
                       src={product.productImage}
                       alt={product.name}
-                      className="w-full h-full object-contain group-hover:scale-105 transition cursor-pointer"
+                      fill
+                      sizes="(max-width: 640px) 100vw, (max-width: 768px) 50vw, (max-width: 1024px) 33vw, 25vw"
+                      className="object-contain group-hover:scale-105 transition cursor-pointer"
+                      loading="lazy"
+                      quality={85}
                     />
                   </div>
                 </Link>

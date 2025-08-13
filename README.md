@@ -1,36 +1,117 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apparel Stock Hub - Business Website
+
+A modern business promotion website built with Next.js, featuring product showcases, contact forms, and comprehensive business information.
+
+🌐 **Live Site**: [https://apparelstockhub.com](https://apparelstockhub.com)
+
+## Features
+
+- 📱 **Responsive Design** - Mobile-first approach with Tailwind CSS
+- 🛍️ **Product Showcase** - Dynamic product pages with image galleries
+- 📞 **Contact System** - Contact form with email notifications and database storage
+- 🔍 **SEO Optimized** - Meta tags, sitemap, and structured data
+- 📧 **Email Integration** - Automated email notifications via Nodemailer
+- 🗄️ **Database** - Prisma ORM with SQLite for contact management
+- ⚡ **Performance** - Optimized images and static generation
+
+## Tech Stack
+
+- **Framework**: Next.js 15.3.3 (App Router)
+- **Styling**: Tailwind CSS
+- **Database**: Prisma + SQLite
+- **Email**: Nodemailer (QQ Mail service)
+- **Icons**: React Icons
+- **Image Carousel**: React Slick
+- **Language**: TypeScript
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ 
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/dingdududu/officialweb.git
+cd officialweb
+```
+
+2. Install dependencies:
+```bash
+npm install
+```
+
+3. Set up environment variables:
+Create a `.env` file in the root directory:
+```env
+DATABASE_URL="file:./prisma/dev.db"
+EMAIL_USER="your-email@qq.com"
+EMAIL_PASS="your-email-password"
+```
+
+4. Set up the database:
+```bash
+npx prisma generate
+npx prisma db push
+```
+
+### Development
+
+Run the development server:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+### Build for Production
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+```bash
+npm run build
+npm run start
+```
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+```
+src/
+├── app/                 # Next.js app directory
+│   ├── components/      # Reusable components
+│   ├── api/            # API routes
+│   └── [pages]/        # Page components
+├── data/               # Static data files
+│   ├── metadata.json   # SEO metadata
+│   ├── products.ts     # Product data
+│   └── qaList.ts       # FAQ data
+└── generated/          # Prisma generated files
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+prisma/
+├── schema.prisma       # Database schema
+└── migrations/         # Database migrations
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+This project is configured for deployment on Vercel:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Push your code to GitHub
+2. Connect your repository to Vercel
+3. Add your custom domain `apparelstockhub.com`
+4. Set up environment variables in Vercel dashboard
+5. Deploy!
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## Contributing
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## License
+
+This project is private and proprietary.

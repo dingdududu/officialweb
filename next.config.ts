@@ -1,32 +1,37 @@
-// @ts-nocheck // 临时忽略类型检查（可选）
+// @ts-nocheck
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   devIndicators: false,
   images: {
-    domains: ["yourdomain.com"],
     formats: ["image/webp", "image/avif"],
+    deviceSizes: [640, 750, 828, 1080, 1200, 1920, 2048, 3840],
+    imageSizes: [16, 32, 48, 64, 96, 128, 256, 384],
+    // 如果使用外部图片，请加 domains
+    // domains: ['example.com'],
   },
-  // webpack(config, options) {
-  //   const { isServer, dev } = options; // 解构 options
-  //   if (!isServer) {
-  //     config.optimization.splitChunks = {
-  //       chunks: "all",
-  //       cacheGroups: {
-  //         vendor: {
-  //           test: /[\\/]node_modules[\\/]/,
-  //           name: "vendors",
-  //           chunks: "all",
-  //           maxInitialRequests: 5, // 限制初始请求数
-  //           minSize: 20000,
-  //         },
-  //       },
-  //     };
-  //   }
 
+  async redirects() {
+    // 开发环境不启用重定向，避免图片优化 400
+    if (process.env.NODE_ENV === 'development') {
+      return [];
+    }
 
-
-  //   return config;
-  // },
+    // 生产环境启用 HTTP -> HTTPS 重定向，但排除 _next 路径
+    return [
+      {
+        source: '/((?!_next).*)',
+        has: [
+          {
+            type: 'header',
+            key: 'x-forwarded-proto',
+            value: 'http',
+          },
+        ],
+        destination: 'https://apparelstockhub.com/:path*',
+        permanent: true,
+      },
+    ];
+  },
 };
 
 module.exports = nextConfig;

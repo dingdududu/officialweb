@@ -39,7 +39,7 @@ export function generateMetadata({ params }: { params: { slug?: string } }) {
       url: pageData.url,
       type: "website",
       images: [{ url: pageData.ogImage, width: 800, height: 600 }],
-      site_name: metadataJson.siteName || "Your Business Name",
+      site_name: metadataJson.siteName || "Apparel Stock Hub",
     } as CustomOpenGraph,
     alternates: {
       canonical: pageData.url,

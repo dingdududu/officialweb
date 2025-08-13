@@ -2,7 +2,10 @@ import { MetadataRoute } from 'next'
 import { products } from '@/data/products'
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = 'https://firstweb-black.vercel.app'
+  // 根据环境使用不同的URL
+  const baseUrl = process.env.NODE_ENV === 'development' 
+    ? 'http://localhost:3000'
+    : 'https://apparelstockhub.com'
   
   // 静态页面
   const staticPages = [

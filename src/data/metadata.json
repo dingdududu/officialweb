@@ -1,14 +1,25 @@
 {
-  "baseUrl": "https://example.com", 
+  "baseUrl": "https://apparelstockhub.com", 
   "home": {
-    "title": "Home - Your Business Promotion Website",
-    "description": "Explore our company, products, and services for your business needs.",
-    "keywords": "business, promotion, website, enterprise services",
-    "ogTitle": "Home - Your Business Promotion Website",
-    "ogDescription": "Explore our company, products, and services.",
+    "title": "Apparel Stock Hub -Fashion Wholesale Supplier ",
+    "description": "Guangzhou-based clothing manufacturer offering quality overstock fashion at wholesale prices. Branded jeans, T-shirts, jackets and accessories.",
+    "keywords": "Guangzhou clothing stock wholesale, China apparel stock supplier, overstock fashion, branded surplus clothing, wholesale jeans,  men's clothing stock, women's apparel stock, export garments stock, bulk clothing",
+    "ogTitle": "Quality apparel stock Wholesale from Guangzhou, China",
+    "ogDescription": "Premium overstock apparel at unbeatable wholesale prices. Direct from Guangzhou factories to global retailers.",
     "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com"
+    "url": "https://apparelstockhub.com"
   },
+
+  "about": {
+  "title": "About Apparel Stock Hub - Apparel Manufacturer & Trading Company located in Guangzhou, China",
+  "description": "Vertically integrated apparel company based in Guangzhou, China. OEM/ODM production, wholesale supply, brand surplus stock. Serving global supermarkets and e-commerce platforms.",
+  "keywords": "Guangzhou apparel manufacturer, clothing OEM ODM, surplus brand stock, wholesale apparel trading, China garment industry",
+  "ogTitle": "About Apparel Stock Hub - Your Trusted Apparel Manufacturing Partner",
+  "ogDescription": "Learn about our vertically integrated apparel business in Guangzhou,China. Quality manufacturing, flexible trading, brand surplus inventory at exceptional value.",
+  "ogImage": "/images/og-image.jpg",
+  "url": "https://apparelstockhub.com/about"
+},
+
   "products": {
     "title": "Products - Your Business Promotion Website",
     "description": "Browse our wide range of products available for purchase.",
@@ -16,16 +27,7 @@
     "ogTitle": "Products - Your Business Promotion Website",
     "ogDescription": "Browse our wide range of products.",
     "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com/products"
-  },
-  "about": {
-    "title": "About Us - Your Business Promotion Website",
-    "description": "Learn about our company, team, and mission.",
-    "keywords": "about us, company, team",
-    "ogTitle": "About Us - Your Business Promotion Website",
-    "ogDescription": "Learn about our company, team, and mission.",
-    "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com/about"
+    "url": "https://apparelstockhub.com/products"
   },
   "services": {
     "title": "Services - Your Business Promotion Website",
@@ -34,7 +36,7 @@
     "ogTitle": "Services - Your Business Promotion Website",
     "ogDescription": "Discover the services we offer.",
     "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com/services"
+    "url": "https://apparelstockhub.com/services"
   },
   "faqs": {
     "title": "FAQs - Your Business Promotion Website",
@@ -43,7 +45,7 @@
     "ogTitle": "FAQs - Your Business Promotion Website",
     "ogDescription": "Find answers to common questions.",
     "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com/faqs"
+    "url": "https://apparelstockhub.com/faqs"
   },
   "contact": {
     "title": "Contact Us - Your Business Promotion Website",
@@ -52,7 +54,7 @@
     "ogTitle": "Contact Us - Your Business Promotion Website",
     "ogDescription": "Get in touch for more information.",
     "ogImage": "/images/og-image.jpg",
-    "url": "https://example.com/contact"
+    "url": "https://apparelstockhub.com/contact"
   },
-  "siteName": "Your Business Promotion Website"
+  "siteName": "Apparel Stock Hub"
 }

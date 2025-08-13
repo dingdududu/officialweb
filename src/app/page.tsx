@@ -1,5 +1,6 @@
 import metadataJson from "../data/metadata.json";
 import type { Metadata } from "next";
+import Image from "next/image";
 
 interface CustomOpenGraph {
   title?: string;
@@ -43,7 +44,7 @@ export async function generateMetadata(): Promise<CustomMetadata> {
         },
       ],
 
-      site_name: metadataJson.siteName || "Your Business Name",
+      site_name: metadataJson.siteName || "Apparel Stock Hub",
     } as CustomOpenGraph, // 类型断言
     alternates: {
       canonical: pageData.url,
@@ -54,16 +55,25 @@ export async function generateMetadata(): Promise<CustomMetadata> {
         innerHTML: JSON.stringify([
           {
             "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Inflight Entertainment",
-            description:
-              "Personal entertainment options on transatlantic flights.",
+            "@type": "Organization",
+            name: metadataJson.siteName,
+            url: pageData.url,
+            logo: `${pageData.url}/images/logo.png`,
+            sameAs: [
+              `${pageData.url}`
+            ],
           },
           {
             "@context": "https://schema.org",
-            "@type": "Product",
-            name: "Business Class Seats",
-            description: "High comfort lie-flat seats on A330 Business Cabin.",
+            "@type": "OfferCatalog",
+            name: "Ready-Stock Apparel Catalog",
+            itemListElement: [
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Jeans (Men/Women)" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "T-shirts & Tops" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Jackets & Outerwear" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Kidswear" } },
+              { "@type": "Offer", itemOffered: { "@type": "Product", name: "Shoes & Accessories" } }
+            ],
           },
         ]),
       },
@@ -91,27 +101,24 @@ export default function Home() {
     <div className="flex flex-col gap-8">
       {/* 首页大图区域 */}
       <section
-        className="relative h-[300px] sm:h-[400px] lg:h-[500px] flex items-center pt-4 sm:pt-8 lg:pt-12 overflow-hidden"
+        className="relative h-[300px] sm:h-[400px] lg:h-[500px] flex items-center pt-2 sm:pt-4 lg:pt-6 overflow-hidden"
         // aria-label内容要根据实际情况更改
         aria-label="Inflight Entertainment Hero Section"
       >
-        <img
+        <Image
           src="/images/hero.jpg"
           alt="Inflight Entertainment Hero"
-          className="absolute inset-0 w-full h-full object-cover"
-          loading="lazy"
+          fill
+          className="object-cover"
+          priority
+          quality={85}
         />
         <div className="flex flex-col items-start ml-4 sm:ml-16 lg:ml-60 p-4 relative z-10">
           <h1 className="font-bold text-white text-xl sm:text-3xl lg:text-4xl mb-2 leading-tight">
-            Entertainment
+            Genuine sources<br />where value begins
           </h1>
-          <h2 className="text-white text-base sm:text-lg lg:text-xl leading-relaxed w-full sm:w-[400px] lg:w-[450px]">
-            Inflight Entertainment All seats feature in-seat IFE screens with
-            films, TV, Music on demand putting you in charge of your own
-            personal entertainment selection as you cross the Atlantic. Play,
-            pause, rewind or fast-forward a wide range of blockbuster movies,
-            classic films, TV programmes and box sets or music videos at your
-            leisure.
+          <h2 className="text-white text-sm sm:text-base lg:text-lg leading-relaxed w-full sm:w-[400px] lg:w-[500px] ">
+            We offer a wide range of authentic clothing at unbeatable prices, ensuring that you can find exactly what you need. Quality, variety, and affordability—everything you’re looking for, all in one place.
           </h2>
         </div>
       </section>
@@ -121,34 +128,25 @@ export default function Home() {
         {/* 下面的aria-label是为了设置无障碍访问的标签，所以里面的内容要根据实际情况更改 */}
         <h2
           className="text-lg sm:text-xl font-bold mb-2"
-          aria-label="Seats Information"
+          aria-label="Manufacturing"
         >
-          Seats
+          Manufacturing
         </h2>
         <p>
-          High comfort seats The A330 Business Cabin is furnished with a fully
-          lie-flat 6.5ft long bed. And with a width of 22 inches, you'll have
-          plenty of room to stretch out as you dream your way across the
-          Atlantic.AerClub is the loyalty programme of Aer Lingus. Join today
-          and start collecting straight away towards reward flights and tier
-          benefits. It's our way of saying thanks for choosing to fly with us.
-          More details on how it works
+          In our craft, mastery comes from dedication. We believe that excellence in manufacturing demands precision, patience, and an unwavering commitment to every detail.From fabric selection to final stitching, we uphold a spirit of craftsmanship that ensures every garment meets the highest standards.
+
+
         </p>
       </div>
       <div className="max-w-[100%] sm:max-w-[600px] lg:max-w-[800px] mx-auto text-left p-4 mb-8 sm:mb-12 lg:mb-16">
-        {/* 下面的aria-label是为了设置无障碍访问的标签，所以里面的内容要根据实际情况更改 */}
         <h2
           className="text-lg sm:text-xl font-bold mb-2"
-          aria-label="Dining Information"
+          aria-label="Quality, MOQ and Shipping"
         >
-          Dining
+          Trading
         </h2>
         <p>
-          Across all our Transatlantic flights we provide a delicious
-          complimentary meal or you can choose from a selection of tempting
-          pre-order meal options.If you already have an Aer Lingus account
-          separate to AerClub, please log in using your original details to
-          upgrade to your new AerClub account.
+          Trust is the foundation of our business. We believe that lasting partnerships are built on honesty, reliability, and a genuine understanding of our clients’ needs. By offering a wide variety of styles at competitive prices, we ensure that our customers can source with confidence, knowing they are getting both value and peace of mind.
         </p>
       </div>
     </div>

@@ -77,20 +77,17 @@ export default function About() {
         About Us
       </h1>
       <section className="mt-6">
-        <h2 className="text-xl sm:text-2xl font-semibold mb-3">Our Story</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3">Our Mission</h2>
         <p className="mt-4 mb-4" style={{ textIndent: "2em" }}>
-          Sydney is home to must-visit icons like the Sydney Harbour Bridge and
-          Opera House, but this Harbour City is constantly evolving. New rooftop
-          bars, theatre shows, and designer shops pop up at every turn, and the
-          urban excitement is perfectly balanced by afternoons spent lying on
-          the sand. Plus, with diverse destinations at its doorstep, Sydney is
-          the perfect base for day trips and weekends away.
+          We are a vertically integrated apparel company dedicated to delivering quality products, a broad range of styles, and exceptional value to customers worldwide. Based in Guangzhou, China, we unite advanced manufacturing capabilities with flexible trading solutions to serve markets efficiently and reliably. Over the years, we have established long-term, active partnerships with leading supermarkets and top e-commerce platforms across the globe, giving us deep insight into international market demands. Our experienced team—seasoned in both production and global trade—ensures that every order is handled with precision, timeliness, and a commitment to customer satisfaction.
         </p>
-        <h2 className="text-xl sm:text-2xl font-semibold mb-3">Our Services</h2>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3 pt-4">Our Services</h2>
         <p className="mt-4 mb-4" style={{ textIndent: "2em" }}>
-          We offer a range of services including business promotion, product
-          marketing, and event planning, tailored to meet your needs in Sydney
-          and beyond.
+          From OEM and ODM production to wholesale and retail supply, we offer a wide range of apparel solutions tailored to different business models. Our flexible trade terms—including FOB, CIF, and others—allow us to adapt to the specific needs of each client. With an extensive product catalog covering multiple styles, fabrics, and sizes, and supported by an experienced team, we ensure that every partner can source exactly what they need with efficiency, reliability, and confidence.
+        </p>
+        <h2 className="text-xl sm:text-2xl font-semibold mb-3 pt-4">About Stock</h2>
+        <p className="mt-4 mb-4" style={{ textIndent: "2em" }}>
+          Through our close connections within the local garment industry association, we have access to surplus inventory from reputable manufacturing enterprises. These stocks often arise when orders—sometimes for well-known international brands—cannot be delivered due to various business or buyer-related issues. As a result, we are able to offer genuine, brand-level apparel at significantly reduced prices, providing our clients with products that combine exceptional quality and outstanding value.
         </p>
       </section>
         <div className="mt-8 flex flex-col items-center">
