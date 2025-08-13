@@ -106,7 +106,7 @@ export default function Home() {
         aria-label="Inflight Entertainment Hero Section"
       >
         <Image
-          src="/images/hero.jpg"
+          src="/images/hero.png"
           alt="Inflight Entertainment Hero"
           fill
           className="object-cover"
@@ -117,38 +117,28 @@ export default function Home() {
           <h1 className="font-bold text-white text-xl sm:text-3xl lg:text-4xl mb-2 leading-tight">
             Genuine sources<br />where value begins
           </h1>
-          <h2 className="text-white text-sm sm:text-base lg:text-lg leading-relaxed w-full sm:w-[400px] lg:w-[500px] ">
+          <h2 className="text-white text-sm sm:text-base lg:text-lg leading-relaxed w-full sm:w-[320px] lg:w-[400px] ">
             We offer a wide range of authentic clothing at unbeatable prices, ensuring that you can find exactly what you need. Quality, variety, and affordability—everything you’re looking for, all in one place.
           </h2>
         </div>
       </section>
 
       {/* 首页下方内容 */}
-      <div className="max-w-[100%] sm:max-w-[600px] lg:max-w-[800px] mx-auto text-left p-4 mb-8 sm:mb-12 lg:mb-16">
-        {/* 下面的aria-label是为了设置无障碍访问的标签，所以里面的内容要根据实际情况更改 */}
-        <h2
-          className="text-lg sm:text-xl font-bold mb-2"
-          aria-label="Manufacturing"
-        >
-          Manufacturing
-        </h2>
-        <p>
-          In our craft, mastery comes from dedication. We believe that excellence in manufacturing demands precision, patience, and an unwavering commitment to every detail.From fabric selection to final stitching, we uphold a spirit of craftsmanship that ensures every garment meets the highest standards.
-
-
-        </p>
-      </div>
-      <div className="max-w-[100%] sm:max-w-[600px] lg:max-w-[800px] mx-auto text-left p-4 mb-8 sm:mb-12 lg:mb-16">
-        <h2
-          className="text-lg sm:text-xl font-bold mb-2"
-          aria-label="Quality, MOQ and Shipping"
-        >
-          Trading
-        </h2>
-        <p>
-          Trust is the foundation of our business. We believe that lasting partnerships are built on honesty, reliability, and a genuine understanding of our clients’ needs. By offering a wide variety of styles at competitive prices, we ensure that our customers can source with confidence, knowing they are getting both value and peace of mind.
-        </p>
-      </div>
+      
+      <div className="max-w-[100%] sm:max-w-[600px] lg:max-w-[800px] mx-auto text-left p-4 mb-4">
+  <h2 className="text-lg sm:text-xl font-bold mb-2" aria-label="Manufacturing">
+    Manufacturing
+  </h2>
+  <p>
+    In our craft, mastery comes from dedication. We believe that excellence in manufacturing demands precision, patience, and an unwavering commitment to every detail. From fabric selection to final stitching, we uphold a spirit of craftsmanship that ensures every garment meets the highest standards.
+  </p>
+  <h2 className="text-lg sm:text-xl font-bold mb-2 mt-6" aria-label="Trading">
+    Trading
+  </h2>
+  <p>
+    Trust is the foundation of our business. We believe that lasting partnerships are built on honesty, reliability, and a genuine understanding of our clients’ needs. By offering a wide variety of styles at competitive prices, we ensure that our customers can source with confidence, knowing they are getting both value and peace of mind.
+  </p>
+</div>
     </div>
     </>
   );

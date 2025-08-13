@@ -68,7 +68,7 @@ export default function Footer() {
         {/* 版权信息 - 另起一行居中 */}
         <div className="flex justify-center">
           <small className="text-center text-sm md:text-base">
-            © {new Date().getFullYear()} Your Website. All rights reserved.
+            © {new Date().getFullYear()} Apparel Stock Hub. All rights reserved.
           </small>
         </div>
       </div>
