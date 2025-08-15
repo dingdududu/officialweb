@@ -21,11 +21,10 @@
 },
 
   "products": {
-    "title": "Products - Your Business Promotion Website",
-    "description": "Browse our wide range of products available for purchase.",
-    "keywords": "products, aviation products, business products",
-    "ogTitle": "Products - Your Business Promotion Website",
-    "ogDescription": "Browse our wide range of products.",
+    "title": "Product Catalogue - Apparel Stock Hub",
+    "description": "Explore our wholesale apparel catalogue including jeans, t-shirts, jackets, kidswear, and accessories. Ready-stock, competitive prices, and global shipping from Guangzhou, China.",
+    "keywords": "wholesale apparel, clothing catalogue, jeans, t-shirts, jackets, kidswear, accessories, ready-stock, Guangzhou supplier, brand surplus, factory direct",
+    "ogDescription": "Discover our wholesale apparel catalogue: jeans, t-shirts, jackets, kidswear, and accessories. Ready-stock, competitive prices, and global shipping direct from Guangzhou, China.",
     "ogImage": "/images/og-image.jpg",
     "url": "https://apparelstockhub.com/products"
   },
@@ -39,20 +38,20 @@
     "url": "https://apparelstockhub.com/services"
   },
   "faqs": {
-    "title": "FAQs - Your Business Promotion Website",
-    "description": "Find answers to common questions about our products and services.",
-    "keywords": "FAQ, frequently asked questions, help, support",
-    "ogTitle": "FAQs - Your Business Promotion Website",
-    "ogDescription": "Find answers to common questions.",
+  "title": "FAQs - Apparel Stock Hub | Wholesale Apparel Supplier",
+  "description": "Frequently asked questions about our wholesale apparel, order process, shipping, and product quality. Get clear answers for global buyers and retailers.",
+  "keywords": "apparel FAQs, wholesale clothing questions, order process, shipping, product quality, global buyers, Guangzhou supplier",
+  "ogTitle": "FAQs - Apparel Stock Hub | Wholesale Apparel Supplier",
+  "ogDescription": "Find answers to common questions about wholesale apparel, ordering, shipping, and product quality at Apparel Stock Hub.",
     "ogImage": "/images/og-image.jpg",
     "url": "https://apparelstockhub.com/faqs"
   },
   "contact": {
-    "title": "Contact Us - Your Business Promotion Website",
-    "description": "Get in touch for more information about our offerings.",
-    "keywords": "contact, customer service, support",
-    "ogTitle": "Contact Us - Your Business Promotion Website",
-    "ogDescription": "Get in touch for more information.",
+  "title": "Contact Us - Apparel Stock Hub | Wholesale Apparel Supplier",
+  "description": "Contact Apparel Stock Hub for wholesale apparel inquiries, partnership opportunities, and customer support. Based in Guangzhou",
+  "keywords": "contact apparel supplier, wholesale inquiries, customer support, Guangzhou apparel",
+  "ogTitle": "Contact Us - Apparel Stock Hub | Wholesale Apparel Supplier",
+  "ogDescription": "Reach out to Apparel Stock Hub for wholesale apparel inquiries, partnerships, and support. Guangzhou-based",
     "ogImage": "/images/og-image.jpg",
     "url": "https://apparelstockhub.com/contact"
   },
