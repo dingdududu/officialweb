@@ -55,7 +55,7 @@ export default function Products() {
           __html: JSON.stringify({
             "@context": "https://schema.org",
             "@type": "CollectionPage",
-            name: "热销产品",
+            name: "Product Showcase",
             description: metadataJsonTyped.products.description,
             url: `${metadataJsonTyped.baseUrl}/products`,
           }),
@@ -65,7 +65,7 @@ export default function Products() {
       <main className="flex flex-col min-h-screen pt-16 sm:pt-20 md:pt-24">
         <div className="max-w-[1400px] mx-auto w-full px-4 sm:px-6">
           <h1 className="text-2xl sm:text-3xl font-bold mb-6 sm:mb-8 text-center pt-12 sm:pt-16 md:pt-20">
-            热销产品
+            Product Showcase
           </h1>
 
           {/* 产品网格 */}
@@ -79,7 +79,7 @@ export default function Products() {
                 <Link
                   href={`/products/${product.slug}`}
                   className="w-full"
-                  aria-label={`查看${product.name}详情`}
+                  aria-label={`View details of ${product.name}`}
                 >
                   <div className="relative w-full aspect-[4/5] bg-gray-100 overflow-hidden shadow-sm">
                     <Image
