@@ -31,6 +31,10 @@ export const qaList: QA[] = [
     answer: "All products are supplied by certified and qualified manufacturers, meeting the requirements of the original order. Some European and American order stock can provide test reports from international inspection agencies such as SGS or BV.",
   },
   {
+  question: "Has the stock been kept for a long time?",
+  answer: "No, usually not longer than half a year. Since we need to recover funds, we clear the stock as quickly as possible.",
+},
+  {
     question: "If the stock comes from big brands, is there an intellectual property risk?",
     answer: "It depends on the brand. For some major international brands, we remove or cut off the labels to avoid legal risks.",
   },
