@@ -47,11 +47,16 @@ export const qaList: QA[] = [
     answer: "We only charge the cost price, which is usually just a few US dollars.",
   },
   {
-    question: "Will there be differences between the received goods and the samples?",
-    answer: "Our samples are randomly selected from the bulk goods.",
-  },
-  {
-    question: "Can I inspect goods on-site?",
-    answer: "Yes, you are welcome to visit and inspect the goods in person.",
-  },
+  question: "Will there be differences between the received goods and the samples?",
+  answer: "Our samples are randomly selected from the bulk goods.",
+},
+{
+  question: "Can we replace the labels or hangtags with our own brand?",
+  answer: "Yes, you can provide the materials and we will handle it for you, or you may entrust us to custom-make the accessories (provided your use is legal and properly authorized).",
+},
+{
+  question: "Can I inspect goods on-site?",
+  answer: "Yes, you are welcome to visit and inspect the goods in person.",
+},
+
 ];

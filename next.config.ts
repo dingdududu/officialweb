@@ -30,6 +30,18 @@ const nextConfig = {
         destination: 'https://apparelstockhub.com/:path*',
         permanent: true,
       },
+      // www 域名跳转到主域名
+      {
+        source: '/:path*',
+        has: [
+          {
+            type: 'host',
+            value: 'www.apparelstockhub.com',
+          },
+        ],
+        destination: 'https://apparelstockhub.com/:path*',
+        permanent: true,
+      },
     ];
   },
 };
