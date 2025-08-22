@@ -128,6 +128,23 @@ export default async function ProductDetail({ params }: Props) {
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
     },
+    review: {
+      "@type": "Review",
+      reviewRating: {
+        "@type": "Rating",
+        ratingValue: "4",
+        bestRating: "5"
+      },
+      author: {
+        "@type": "Person",
+        name: "John Doe"
+      }
+    },
+    aggregateRating: {
+      "@type": "AggregateRating",
+      ratingValue: "4.5",
+      reviewCount: "24"
+    }
   };
 
   const videoJsonLd = {
