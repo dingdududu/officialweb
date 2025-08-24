@@ -1,17 +1,13 @@
 import { socialLinks } from "./socialLinks";
 
 // 放在 Footer 组件里，这里的websie和title要根据实际情况修改
-const shareUrl = encodeURIComponent(
-  typeof window !== "undefined"
-    ? window.location.href
-    : "https://apparelstockhub.com"
-);
+const shareUrl = typeof window !== "undefined"
+  ? window.location.href
+  : "https://apparelstockhub.com";
 
-const shareTitle = encodeURIComponent(
-  typeof document !== "undefined"
-    ? document.title
-    : "Apparel Stock Hub"
-);
+const shareTitle = typeof document !== "undefined"
+  ? document.title
+  : "Apparel Stock Hub";
 
 const mobileSocialLinks = socialLinks.filter((link) =>
   ["X", "WhatsApp", "Line", "Instagram", "Signal"].includes(link.label)
