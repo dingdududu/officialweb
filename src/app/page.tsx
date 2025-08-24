@@ -7,7 +7,7 @@ interface CustomOpenGraph {
   description?: string;
   url?: string;
   type?: string;
-  images?: Array<{ url: string; width?: number; height?: number }>;
+  images?: Array<{ url: string; width?: number; height?: number; alt?: string }>;
   site_name?: string; 
 }
 
@@ -20,6 +20,14 @@ interface CustomScript {
 interface CustomMetadata extends Omit<Metadata, 'other'> {
   other?: {
     script?: CustomScript;
+  };
+  twitter?: {
+    card?: string;
+    site?: string;
+    title?: string;
+    description?: string;
+    images?: string[];
+    creator?: string;
   };
 }
 
@@ -38,14 +46,21 @@ export async function generateMetadata(): Promise<CustomMetadata> {
       type: "website",
       images: [
         {
-          url: pageData.ogImage,
-          width: 800,
-          height: 600,
+          url: `${metadataJson.baseUrl}${pageData.ogImage}`,
+          width: 1200,
+          height: 630,
+          alt: pageData.ogTitle,
         },
       ],
-
       site_name: metadataJson.siteName || "Apparel Stock Hub",
-    } as CustomOpenGraph, // 类型断言
+    } as CustomOpenGraph,
+    twitter: {
+      card: "summary_large_image",
+      title: pageData.ogTitle,
+      description: pageData.ogDescription,
+      images: [`${metadataJson.baseUrl}${pageData.ogImage}`],
+      creator: "@apparelstockhub",
+    },
     alternates: {
       canonical: pageData.url,
     },
@@ -79,7 +94,6 @@ export async function generateMetadata(): Promise<CustomMetadata> {
       },
     },
   };
-
 }
 
 export default function Home() {
