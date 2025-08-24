@@ -4,13 +4,13 @@ import { socialLinks } from "./socialLinks";
 const shareUrl = encodeURIComponent(
   typeof window !== "undefined"
     ? window.location.href
-    : process.env.NEXT_PUBLIC_SITE_URL || "https://yourwebsite.com"
+    : "https://apparelstockhub.com"
 );
 
 const shareTitle = encodeURIComponent(
   typeof document !== "undefined"
     ? document.title
-    : process.env.NEXT_PUBLIC_DEFAULT_TITLE || "Your Website Title"
+    : "Apparel Stock Hub"
 );
 
 const mobileSocialLinks = socialLinks.filter((link) =>
