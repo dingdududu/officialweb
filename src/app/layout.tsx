@@ -50,17 +50,22 @@ export function generateMetadata({ params }: { params: { slug?: string } }) {
   
 }
 
-export default function RootLayout({ children }: { children: React.ReactNode }) {
+export default function RootLayout({
+  children,
+}: Readonly<{
+  children: React.ReactNode;
+}>) {
   return (
-    <html lang="en" className={openSans.className}>
+    <html lang="en">
       <head>
-        <meta charSet="UTF-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="icon" href="/favicon.ico" />
+        {/* 预加载关键图片 */}
+        <link rel="preload" as="image" href="/images/hero.avif" type="image/avif" />
+        <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
+        <link rel="preload" as="image" href="/images/hero-optimized.png" type="image/png" />
       </head>
-      <body className="min-h-screen flex flex-col">
+      <body className={openSans.className}>
         <Navbar />
-        <main className="flex-1 z-[0] pt-[85px] md:pt-[60px]">{children}</main>
+        <main>{children}</main>
         <Footer />
       </body>
     </html>

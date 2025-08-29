@@ -12,6 +12,7 @@
   "dependencies": {
     "@prisma/client": "^6.12.0",
     "next": "15.3.3",
+    "next-intl": "^4.3.5",
     "nodemailer": "^7.0.5",
     "prisma": "^6.12.0",
     "react": "^19.0.0",
@@ -26,6 +27,7 @@
     "@types/nodemailer": "^6.4.17",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "sharp": "^0.34.3",
     "stylelint": "^16.21.0",
     "stylelint-config-standard": "^38.0.0",
     "tailwindcss": "^4.1.10",
