@@ -1,8 +1,8 @@
 export const products = [
   {
     id: 1,
-    name: "Denim is a sturdy cotton",
-    price: "199",
+    name: "Halloween Sweater",
+    price: "$ 3.9",
     slug: "product-A",
     productImage: "/images/products/product1.jpg",
     images: [
@@ -10,14 +10,15 @@ export const products = [
       "/images/products/product-A-2.jpg",
       "/images/products/product-A-3.jpg",
     ],
-    description:
-      "By the 1970s, denim jeans were such an integral part of youth culture[9] that automobile manufactures, beginning with American Motors Corporation began offering denim-like interior finishes.[10][11] (Because denim cannot pass fire resistance safety standards,[12] indigo-colored spun nylon or vinyl was used,[13] with contrast-stitching and copper rivets helping to sell the effect.) A Levi's-branded trim package debuted with AMC's 1973 model year. Similar packages were available from Volkswagen from 1973 to 1975 (the [14][15] and from Jeep from 1975 through 1977.",
-    specs: [
-      "Denim, as it is recognized today, was first produced in Nîmes, France.",
-      "Denim is available in a range of colors, but the most common denim is indigo denim",
-      "Denim has been used in the United States since the mid-19th century.",
-    ],
-    longDescription: "This is a long description...",
+    description: "Festive Halloween sweater featuring classic spooky motifs, perfect for parties and seasonal events.",
+specs: [
+  "Material: 100% acrylic",
+  "Sizes: S, M, L, XL, XXL",
+  "Color: Black with orange and white Halloween patterns",
+  "Unisex fit",
+  "Machine washable"
+],
+longdescription: "Celebrate the spooky season in style with our Halloween sweater! Designed with iconic Halloween elements like pumpkins, bats, and ghosts, this cozy knit is ideal for parties, trick-or-treating, or casual autumn wear. The soft acrylic fabric ensures comfort and warmth, while the vibrant patterns make you stand out at any festive gathering. Available in a full range of sizes for all ages.",
     videoUrl:
       "https://www.youtube.com/watch?v=e-ORhEE9VVg&list=RDe-ORhEE9VVg&start_radio=1",
     detailImages: [
