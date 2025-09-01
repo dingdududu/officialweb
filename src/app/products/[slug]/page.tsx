@@ -189,6 +189,7 @@ export default async function ProductDetail({ params }: Props) {
                     images={product.images}
                     alt={product.name}
                     title={product.name}
+                    pageUrl={`${metadataJsonTyped.baseUrl}/products/${resolvedParams.slug}`}
                   />
                 </Suspense>
               </div>

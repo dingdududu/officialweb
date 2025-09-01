@@ -16,9 +16,10 @@ type Props = {
   images: string[];
   alt: string;
   title: string;
+  pageUrl: string; // 新增参数
 };
 
-export default function ProductSlider({ images, alt, title }: Props) {
+export default function ProductSlider({ images, alt, title, pageUrl }: Props) {
   const [current, setCurrent] = useState(0);
   const sliderRef = useRef<any>(null);
   const [iconSize, setIconSize] = useState(16);
@@ -52,7 +53,7 @@ export default function ProductSlider({ images, alt, title }: Props) {
   };
 
   const currentImgUrl = images[current];
-  const shareTitle = title || "产品图片";
+  const shareTitle = `${title} - ${pageUrl}`;
 
   return (
     <div className="w-full max-w-[300px] xs:max-w-[320px] sm:max-w-[400px] md:max-w-[450px] lg:max-w-[550px] xl:max-w-[650px] mx-auto">
