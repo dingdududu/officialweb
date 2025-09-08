@@ -154,21 +154,7 @@ export async function generateMetadata(): Promise<CustomMetadata> {
 export default function Home() {
   return (
     <>
-      {/* 下面这段因为导致了页面 重复且不完整的代码，出现了报错 应指定“offers”、“review”或“aggregateRating”
-存在此问题的内容无效。无效内容无法在 Google 搜索中显示为富媒体搜索结果
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Product",
-            name: metadataJson.siteName,
-            description: metadataJson.home.description,
-            url: metadataJson.home.url,
-            image: `${metadataJson.home.url}${metadataJson.home.ogImage}`,
-          }),
-        }}
-      /> */}
+      
       <div className="flex flex-col gap-8">
         {/* 首页大图区域 */}
         <section
@@ -216,7 +202,7 @@ export default function Home() {
             In our craft, mastery comes from dedication. We believe that
             excellence in manufacturing demands precision, patience, and an
             unwavering commitment to every detail. From fabric selection to
-            final stitching, we uphold a spirit of craftsmanship that ensures
+            final sewing, we uphold a spirit of craftsmanship that ensures
             every garment meets the highest standards.
           </p>
           <h2
