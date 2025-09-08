@@ -1,0 +1,16 @@
+# llms.txt for apparelstockhub.com
+# This file controls how AI/LLMs can use content from this site
+# Generated dynamically via API
+
+# Allow AI to use public content
+Allow: /products/*
+Allow: /about
+Allow: /faqs
+
+# Disallow sensitive or admin areas
+Disallow: /admin/*
+Disallow: /api/*
+Disallow: /_next/*
+
+# Contact for AI training permissions
+Contact: info@apparelstockhub.com

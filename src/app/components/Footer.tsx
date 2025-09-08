@@ -64,7 +64,8 @@ export default function Footer() {
         {/* 版权信息 - 另起一行居中 */}
         <div className="flex justify-center">
           <small className="text-center text-sm md:text-base">
-            © {new Date().getFullYear()} Apparel Stock Hub. All rights reserved.
+            © {new Date().getFullYear()} Apparel Stock Hub. All rights reserved. | 
+            <a href="/privacy-policy" className="hover:underline ml-1">Privacy Policy</a>
           </small>
         </div>
       </div>

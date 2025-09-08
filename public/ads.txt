@@ -1,0 +1,8 @@
+# ads.txt for apparelstockhub.com
+# This file lists authorized digital sellers for advertising on this site
+
+# Google AdSense (if using)
+google.com, pub-0000000000000000, DIRECT, f08c47fec0942fa0
+
+# Add other advertising partners here as needed
+# Format: domain.com, publisher-id, DIRECT/RESELLER, TAG-ID

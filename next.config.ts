@@ -18,6 +18,11 @@ const nextConfig = {
     // 生产环境启用 HTTP -> HTTPS 重定向，但排除 _next 路径
     return [
       {
+        source: '/llms.txt',
+        destination: '/api/llms.txt',
+        permanent: true,
+      },
+      {
         source: '/((?!_next).*)',
         has: [
           {
