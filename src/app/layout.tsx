@@ -57,13 +57,25 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <head>
+      <body className={openSans.className}>
+        {/* Google Analytics 脚本 */}
+        <script async src="https://www.googletagmanager.com/gtag/js?id=G-7P58ZB22HM"></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              window.dataLayer = window.dataLayer || [];
+              function gtag(){dataLayer.push(arguments);}
+              gtag('js', new Date());
+              gtag('config', 'G-7P58ZB22HM');
+            `,
+          }}
+        />
+        
         {/* 预加载关键图片 */}
         <link rel="preload" as="image" href="/images/hero.avif" type="image/avif" />
         <link rel="preload" as="image" href="/images/hero.webp" type="image/webp" />
         <link rel="preload" as="image" href="/images/hero-optimized.png" type="image/png" />
-      </head>
-      <body className={openSans.className}>
+        
         <Navbar />
         <main>{children}</main>
         <Footer />
