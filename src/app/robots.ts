@@ -45,7 +45,8 @@ export default function robots(): MetadataRoute.Robots {
         {
           userAgent: '*',
           allow: '/',
-          disallow: ['/api/', '/_next/', '/admin/', '/.well-known/'],
+          disallow: ['/api/', '/admin/', '/.well-known/'],
+          // 移除 /_next/ 的屏蔽，允许搜索引擎访问静态资源
         },
       ],
       sitemap: `${baseUrl}/sitemap.xml`,

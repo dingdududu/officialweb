@@ -28,8 +28,8 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
   },
   {
     id: 2,
-    name: "Denim is available in a range of colors",
-    price: "299",
+    name: "Premium Denim Jeans Collection",
+    price: "$29.99",
     slug: "product-B",
     productImage: "/images/products/product2.jpg",
     images: [
@@ -37,12 +37,16 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
       "/images/products/product-B-2.jpg",
       "/images/products/product-B-3.jpg",
     ],
-    description:
-      "By the 1970s, denim jeans were such an integral part of youth culture[9] that automobile manufactures, beginning with American Motors Corporation began offering denim-like interior finishes.[10][11] (Because denim cannot pass fire resistance safety standards,[12] indigo-colored spun nylon or vinyl was used,[13] with contrast-stitching and copper rivets helping to sell the effect.) A Levi's-branded trim package debuted with AMC's 1973 model year. Similar packages were available from Volkswagen from 1973 to 1975 (the [14][15] and from Jeep from 1975 through 1977.",
-    specs: ["核心频率：1800MHz", "显存容量：16GB", "显存类型：GDDR6"],
-    longDescription: "This is a long description...",
-    videoUrl:
-      "https://www.youtube.com/watch?v=XGxIE1hr0w4&list=RDXGxIE1hr0w4&start_radio=1",
+    description: "High-quality denim jeans with perfect fit and durable construction. Available in multiple washes and sizes for men and women.",
+    specs: [
+      "Material: 100% cotton denim",
+      "Fit: Slim, Regular, Relaxed",
+      "Wash: Dark, Medium, Light",
+      "Sizes: 28-40 waist",
+      "Care: Machine washable"
+    ],
+    longdescription: "Experience premium comfort and style with our collection of high-quality denim jeans. Crafted from 100% cotton denim with reinforced stitching for durability. Available in multiple fits and washes to suit every preference. Perfect for casual wear, work, or special occasions. Our jeans combine classic design with modern comfort, ensuring you look great and feel comfortable all day long.",
+    videoUrl: "https://www.youtube.com/watch?v=XGxIE1hr0w4&list=RDXGxIE1hr0w4&start_radio=1",
     detailImages: [
       "/images/products/product-B-detail1.webp",
       "/images/products/product-B-detail2.webp",
@@ -50,8 +54,8 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
   },
   {
     id: 3,
-    name: "Denim is available in a range of colors-C",
-    price: "399",
+    name: "Classic Cotton T-Shirt Collection",
+    price: "$12.99",
     slug: "product-C",
     productImage: "/images/products/product3.jpg",
     images: [
@@ -59,12 +63,18 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
       "/images/products/product-C-2.jpg",
       "/images/products/product-C-3.jpg",
     ],
-    description:
-      "By the 1970s, denim jeans were such an integral part of youth culture[9] that automobile manufactures, beginning with American Motors Corporation began offering denim-like interior finishes.[10][11] (Because denim cannot pass fire resistance safety standards,[12] indigo-colored spun nylon or vinyl was used,[13] with contrast-stitching and copper rivets helping to sell the effect.) A Levi's-branded trim package debuted with AMC's 1973 model year. Similar packages were available from Volkswagen from 1973 to 1975 (the [14][15] and from Jeep from 1975 through 1977.",
-    specs: ["核心频率：1800MHz", "显存容量：16GB", "显存类型：GDDR6"],
-    longDescription: "This is a long description...",
-    videoUrl:
-      "https://www.youtube.com/watch?v=FvVnP8G6ITs&list=RDFvVnP8G6ITs&start_radio=1",
+    description: "Comfortable and versatile cotton t-shirts available in multiple colors and sizes. Perfect for casual wear, branding, or retail.",
+    specs: [
+      "Material: 100% combed cotton",
+      "Weight: 180 GSM",
+      "Neck: Crew neck",
+      "Sleeve: Short sleeve",
+      "Colors: White, Black, Navy, Gray, Red",
+      "Sizes: S, M, L, XL, XXL",
+      "Care: Machine washable"
+    ],
+    longdescription: "Our classic cotton t-shirt collection offers exceptional comfort and quality for everyday wear. Made from 100% combed cotton with a soft, breathable feel that lasts wash after wash. Available in a wide range of colors to suit any branding or fashion need. The reinforced neckline and double-stitched hems ensure durability, while the comfortable fit makes these t-shirts ideal for casual wear, work uniforms, or promotional merchandise. Perfect for wholesalers looking for reliable, high-quality basics.",
+    videoUrl: "https://www.youtube.com/watch?v=FvVnP8G6ITs&list=RDFvVnP8G6ITs&start_radio=1",
     detailImages: [
       "/images/products/product-C-detail1.webp",
       "/images/products/product-C-detail2.webp",
@@ -72,8 +82,8 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
   },
   {
     id: 4,
-    name: "Denim is available in a range of colors-D",
-    price: "399",
+    name: "Stylish Denim Jacket Collection",
+    price: "$45.99",
     slug: "product-D",
     productImage: "/images/products/product4.jpg",
     images: [
@@ -81,12 +91,18 @@ longdescription: "Celebrate the spooky season in style with our Halloween sweate
       "/images/products/product-D-2.jpg",
       "/images/products/product-D-3.jpg",
     ],
-    description:
-      "By the 1970s, denim jeans were such an integral part of youth culture[9] that automobile manufactures, beginning with American Motors Corporation began offering denim-like interior finishes.[10][11] (Because denim cannot pass fire resistance safety standards,[12] indigo-colored spun nylon or vinyl was used,[13] with contrast-stitching and copper rivets helping to sell the effect.) A Levi's-branded trim package debuted with AMC's 1973 model year. Similar packages were available from Volkswagen from 1973 to 1975 (the [14][15] and from Jeep from 1975 through 1977.",
-    specs: ["核心频率：1800MHz", "显存容量：16GB", "显存类型：GDDR6"],
-    longDescription: "This is a long description...",
-    videoUrl:
-      "https://www.youtube.com/watch?v=MQAC0oCEyHs&list=RDMQAC0oCEyHs&start_radio=1",
+    description: "Classic denim jackets with modern styling. Perfect for layering, available in various washes and fits for men and women.",
+    specs: [
+      "Material: 100% cotton denim",
+      "Lining: Polyester for warmth",
+      "Closure: Button front",
+      "Pockets: Multiple front and interior pockets",
+      "Wash: Raw, Medium, Dark",
+      "Fit: Regular, Slim",
+      "Sizes: S, M, L, XL, XXL"
+    ],
+    longdescription: "Elevate your outerwear collection with our stylish denim jacket series. Crafted from premium 100% cotton denim with a comfortable polyester lining for year-round wear. Features classic button-front closure, multiple pockets for functionality, and available in various washes from raw denim to pre-washed options. The timeless design combines vintage appeal with modern comfort, making these jackets perfect for casual outings, workwear, or as a versatile layering piece. Durable construction ensures these jackets will be wardrobe staples for years to come.",
+    videoUrl: "https://www.youtube.com/watch?v=MQAC0oCEyHs&list=RDMQAC0oCEyHs&start_radio=1",
     detailImages: [
       "/images/products/product-D-detail1.webp",
       "/images/products/product-D-detail2.webp",
