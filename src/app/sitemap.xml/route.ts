@@ -10,7 +10,6 @@ export async function GET() {
   const staticPages = [
     `${baseUrl}/`,
     `${baseUrl}/about`,
-    `${baseUrl}/services`,
     `${baseUrl}/products`,
     `${baseUrl}/contact`,
     `${baseUrl}/faqs`,
