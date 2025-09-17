@@ -162,18 +162,15 @@ export default function Home() {
           // aria-label内容要根据实际情况更改
           aria-label="Inflight Entertainment Hero Section"
         >
-          <picture>
-            <source srcSet="/images/hero.avif" type="image/avif" />
-            <source srcSet="/images/hero.webp" type="image/webp" />
-            <Image
-              src="/images/hero-optimized.png"
-              alt="Inflight Entertainment Hero"
-              fill
-              className="object-cover"
-              priority
-              quality={85}
-            />
-          </picture>
+          <Image
+            src="/images/hero-optimized.png"
+            alt="Inflight Entertainment Hero"
+            fill
+            className="object-cover"
+            priority
+            quality={70}
+            sizes="100vw"
+          />
           <div className="flex flex-col items-start ml-4 sm:ml-16 lg:ml-60 p-4 relative z-10">
             <h1 className="font-bold text-white text-xl sm:text-3xl lg:text-4xl mb-2 leading-tight">
               Genuine sources
