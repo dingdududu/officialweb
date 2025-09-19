@@ -127,6 +127,38 @@ export default async function ProductDetail({ params }: Props) {
       price: product.price?.replace(/[^0-9.]/g, "") || "0.00",
       priceCurrency: "USD",
       availability: "https://schema.org/InStock",
+      // 添加结构化数据推荐字段
+      url: `${metadataJsonTyped.baseUrl}/products/${resolvedParams.slug}`,
+      itemCondition: "https://schema.org/NewCondition",
+      priceValidUntil: new Date(new Date().setFullYear(new Date().getFullYear() + 1))
+        .toISOString()
+        .split("T")[0], // 一年后到期
+      hasMerchantReturnPolicy: {
+        "@type": "MerchantReturnPolicy",
+        applicableCountry: "US",
+        returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+        merchantReturnDays: 30,
+        returnMethod: "https://schema.org/ReturnByMail",
+        returnFees: "https://schema.org/FreeReturn",
+      },
+      shippingDetails: {
+        "@type": "OfferShippingDetails",
+        shippingRate: {
+          "@type": "MonetaryAmount",
+          value: "0.00",
+          currency: "USD"
+        },
+        shippingDestination: {
+          "@type": "DefinedRegion",
+          addressCountry: "US"
+        },
+        deliveryTime: {
+          "@type": "ShippingDeliveryTime",
+          handlingTime: { "@type": "QuantitativeValue", minValue: 1, maxValue: 2, unitCode: "d" },
+          transitTime: { "@type": "QuantitativeValue", minValue: 5, maxValue: 10, unitCode: "d" }
+        },
+        doesNotShip: false
+      },
     },
     review: {
       "@type": "Review",
@@ -153,8 +185,11 @@ export default async function ProductDetail({ params }: Props) {
     name: `${product.name} Product Video`,
     description: product.description,
     thumbnailUrl: product.images[0] || `${metadataJsonTyped.baseUrl}/images/video-thumbnail.jpg`,
-    uploadDate: "2025-08-03",
+    // 使用完整的 ISO 8601 格式（含时间与时区）避免结构化数据警告
+    uploadDate: new Date("2025-08-03T12:00:00Z").toISOString(),
     contentUrl: getEmbedUrl(product.videoUrl) || "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    embedUrl: getEmbedUrl(product.videoUrl) || "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    duration: "PT2M30S",
   };
 
   return (
