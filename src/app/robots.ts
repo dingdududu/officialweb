@@ -1,5 +1,8 @@
 import { MetadataRoute } from 'next'
 
+// Note: Cache control headers for robots.txt are configured in next.config.ts
+// to ensure search engines get updated crawling permissions without caching issues
+
 export default function robots(): MetadataRoute.Robots {
   const env = process.env.NODE_ENV
   const publicEnv = process.env.NEXT_PUBLIC_ENV || ''
