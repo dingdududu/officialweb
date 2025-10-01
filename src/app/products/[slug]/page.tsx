@@ -162,6 +162,10 @@ export default async function ProductDetail({ params }: Props) {
     },
     review: {
       "@type": "Review",
+      itemReviewed: {
+        "@type": "Product",
+        name: product.name
+      },
       reviewRating: {
         "@type": "Rating",
         ratingValue: "4",
