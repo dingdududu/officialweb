@@ -166,11 +166,7 @@ export default async function ProductDetail({ params }: Props) {
         "@type": "Product",
         name: product.name
       },
-      reviewRating: {
-        "@type": "Rating",
-        ratingValue: "4",
-        bestRating: "5"
-      },
+        // aggregateRating removed to fix structured data error
       author: {
         "@type": "Person",
         name: "John Doe"
