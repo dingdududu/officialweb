@@ -160,23 +160,7 @@ export default async function ProductDetail({ params }: Props) {
         doesNotShip: false
       },
     },
-    review: {
-      "@type": "Review",
-      itemReviewed: {
-        "@type": "Product",
-        name: product.name
-      },
-        // aggregateRating removed to fix structured data error
-      author: {
-        "@type": "Person",
-        name: "John Doe"
-      }
-    },
-    aggregateRating: {
-      "@type": "AggregateRating",
-      ratingValue: "4.5",
-      reviewCount: "24"
-    }
+
   };
 
   const videoJsonLd = {
