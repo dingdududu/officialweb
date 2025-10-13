@@ -64,23 +64,7 @@ export default function Products() {
               price: "0.00",
               availability: "https://schema.org/InStock",
             },
-            review: {
-              "@type": "Review",
-              reviewRating: {
-                "@type": "Rating",
-                ratingValue: "4",
-                bestRating: "5",
-              },
-              author: {
-                "@type": "Person",
-                name: "John Doe",
-              },
-            },
-            aggregateRating: {
-              "@type": "AggregateRating",
-              ratingValue: "4.5",
-              reviewCount: "24",
-            },
+              // Removed review and aggregateRating for Google compliance
           }),
         }}
       />
