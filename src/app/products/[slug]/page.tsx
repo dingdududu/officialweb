@@ -101,6 +101,15 @@ function getEmbedUrl(url: string) {
   return match ? `https://www.youtube-nocookie.com/embed/${match[1]}` : url;
 }
 
+function absoluteUrl(pathOrUrl: string) {
+  try {
+    // Use URL resolver so both absolute and relative paths are handled
+    return new URL(pathOrUrl, metadataJsonTyped.baseUrl).toString();
+  } catch (e) {
+    return pathOrUrl;
+  }
+}
+
 export default async function ProductDetail({ params }: Props) {
   const resolvedParams = await params;
   const product = products.find((p) => p.slug === resolvedParams.slug);
@@ -115,13 +124,15 @@ export default async function ProductDetail({ params }: Props) {
   }
 
   // 结构化数据
+  const firstImage = product.images && product.images[0] ? product.images[0] : `/images/${resolvedParams.slug}.jpg`;
+
   const productJsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
     name: product.name,
     description: product.description,
     url: `${metadataJsonTyped.baseUrl}/products/${resolvedParams.slug}`,
-    image: product.images[0] || `${metadataJsonTyped.baseUrl}/images/${resolvedParams.slug}.jpg`,
+    image: absoluteUrl(firstImage),
     offers: {
       "@type": "Offer",
       price: product.price?.replace(/[^0-9.]/g, "") || "0.00",
@@ -168,7 +179,7 @@ export default async function ProductDetail({ params }: Props) {
     "@type": "VideoObject",
     name: `${product.name} Product Video`,
     description: product.description,
-    thumbnailUrl: product.images[0] || `${metadataJsonTyped.baseUrl}/images/video-thumbnail.jpg`,
+    thumbnailUrl: absoluteUrl(product.images[0] || `/images/video-thumbnail.jpg`),
     // 使用完整的 ISO 8601 格式（含时间与时区）避免结构化数据警告
     uploadDate: new Date("2025-08-03T12:00:00Z").toISOString(),
     contentUrl: getEmbedUrl(product.videoUrl) || "https://www.youtube.com/embed/dQw4w9WgXcQ",
@@ -179,7 +190,7 @@ export default async function ProductDetail({ params }: Props) {
   return (
     <>
       {/* 预加载关键资源 */}
-      <link rel="preload" href={product.images[0]} as="image" />
+  <link rel="preload" href={absoluteUrl(firstImage)} as="image" />
       <link rel="dns-prefetch" href="https://www.youtube-nocookie.com" />
       
       {/* 结构化数据脚本 */}
