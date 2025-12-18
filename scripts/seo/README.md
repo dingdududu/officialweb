@@ -6,7 +6,7 @@ Files
 Quick usage
 1. Dry run checks only:
    ```powershell
-   .\auto_verify_and_fix.ps1 -Host 'apparelstockhub.com' -Paths @('/') -DryRun
+   .\auto_verify_and_fix.ps1 -SiteHost 'apparelstockhub.com' -Paths @('/') -DryRun
    ```
 
 2. With Cloudflare purge (replace ZONE_ID and TOKEN):

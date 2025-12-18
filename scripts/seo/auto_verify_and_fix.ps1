@@ -19,7 +19,7 @@ Notes:
 #>
 
 param(
-    [Parameter(Mandatory=$true)] [string]$Host,
+    [Parameter(Mandatory=$true)] [string]$SiteHost,
     [string[]]$Paths = @('/'),
     [switch]$DryRun,
     [string]$CloudflareZoneId,
@@ -32,22 +32,28 @@ function Write-OK($msg){ Write-Host "✅ $msg" -ForegroundColor Green }
 function Write-Warn($msg){ Write-Host "⚠️ $msg" -ForegroundColor Yellow }
 function Write-Err($msg){ Write-Host "❌ $msg" -ForegroundColor Red }
 
-$httpUrl = "http://$Host"
-$httpsUrl = "https://$Host"
+$httpUrl = "http://$SiteHost"
+$httpsUrl = "https://$SiteHost"
 
-Write-Host "Running checks for host: $Host"
+Write-Host "Running checks for host: $SiteHost"
 
 # 1) Check HTTP -> redirect
 Write-Host "\n[1] Checking HTTP -> HTTPS redirect..."
 try {
     try { $r = Invoke-WebRequest -Uri $httpUrl -UseBasicParsing -MaximumRedirection 0 -ErrorAction Stop }
     catch { $r = $_.Exception.Response }
-    $status = $r.StatusCode.Value__
-    $location = $r.Headers['Location']
-    Write-Host "HTTP status: $status"
-    if ($location) { Write-Host "Location: $location" }
-    if ($status -in 301,302) { Write-OK "HTTP redirects (status $status)." }
-    else { Write-Warn "Expected redirect (301/302), got $status." }
+    if ($null -ne $r) {
+        $status = $null
+        try { $status = $r.StatusCode.Value__ } catch { $status = $r.StatusCode }
+        $location = $null
+        try { $location = $r.Headers['Location'] } catch {}
+        Write-Host "HTTP status: $status"
+        if ($location) { Write-Host "Location: $location" }
+        if ($status -in 301,302) { Write-OK "HTTP redirects (status $status)." }
+        else { Write-Warn "Expected redirect (301/302), got $status." }
+    } else {
+        Write-Warn "No response received for HTTP request." 
+    }
 } catch { Write-Err "Failed to check HTTP redirect: $_" }
 
 # 2) Check HTTPS page
@@ -57,30 +63,38 @@ foreach ($p in $Paths) {
     Write-Host "- Testing $url"
     try {
         $r2 = Invoke-WebRequest -Uri $url -UseBasicParsing -ErrorAction Stop
-        $code = $r2.StatusCode.Value__
+        $code = $null
+        try { $code = $r2.StatusCode.Value__ } catch { $code = $r2.StatusCode }
         Write-Host "  Status: $code"
         if ($code -eq 200) { Write-OK "  Page returns 200." }
         else { Write-Warn "  Page returned $code" }
 
-        # Check for noindex meta
+        # Check for noindex meta (case-insensitive)
         $hasNoindex = $false
-        if ($r2.Content -match '<meta[^>]*name=["\']robots["\'][^>]*content=["\']([^"\']*)["\']') {
-            $metaContent = $matches[1]
-            if ($metaContent -match 'noindex') { $hasNoindex = $true }
+        $metaPattern = @'
+(?i)<meta[^>]*\bname\s*=\s*["']robots["'][^>]*\bcontent\s*=\s*["']([^"']+)["']
+'@
+        $m = [regex]::Match($r2.Content, $metaPattern)
+        if ($m.Success) {
+            $metaContent = $m.Groups[1].Value
+            if ($metaContent -match '(?i)noindex') { $hasNoindex = $true }
         }
         if ($hasNoindex) { Write-Warn "  Page contains noindex meta." } else { Write-OK "  No noindex meta found." }
 
         # Check JSON-LD presence and absolute URLs
-        $jsonldMatches = Select-String -InputObject $r2.Content -Pattern '<script[^>]*type=["\']application/ld\+json["\']>(.*?)</script>' -AllMatches
+        $jsonldPattern = @'
+(?is)<script[^>]*\btype=[^>]*application/ld\+json[^>]*>(.*?)</script>
+'@
+        $jsonldMatches = [regex]::Matches($r2.Content, $jsonldPattern)
         if ($jsonldMatches.Count -gt 0) {
             Write-Host "  Found $($jsonldMatches.Count) JSON-LD block(s)."
-            $allJson = $jsonldMatches.Matches | ForEach-Object { $_.Groups[1].Value }
-            foreach ($j in $allJson) {
+            foreach ($match in $jsonldMatches) {
+                $j = $match.Groups[1].Value
                 if ($j -match 'https?://') { Write-OK "    Contains absolute URL(s)." } else { Write-Warn "    No absolute URLs found inside JSON-LD (consider switching to absolute URLs)." }
             }
         } else { Write-Warn "  No JSON-LD found on page." }
 
-    } catch { Write-Err "  Error fetching $url: $_" }
+    } catch { Write-Err ("  Error fetching {0}: {1}" -f $url, $_.Exception.Message) }
 }
 
 # 3) Check sitemap
